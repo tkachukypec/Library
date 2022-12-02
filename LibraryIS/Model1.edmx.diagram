@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b5d03f92fe7b4573ab22f336dad435a1" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="ip220Model.Author" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ip220Model.BBK" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ip220Model.Book" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="ip220Model.BookIssuance" Width="1.5" PointX="7.5" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ip220Model.BookLost" Width="1.5" PointX="10.5" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ip220Model.Client" Width="1.5" PointX="5.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ip220Model.Librarian" Width="1.5" PointX="5.25" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ip220Model.Limits" Width="1.5" PointX="7.5" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ip220Model.Publication" Width="1.5" PointX="5.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ip220Model.Publisher" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ip220Model.Warnings" Width="1.5" PointX="7.5" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ip220Model.YDK" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <AssociationConnector Association="ip220Model.FK_Publication_BBK1" ManuallyRouted="false" />
+        <AssociationConnector Association="ip220Model.FK_Publication_Book" ManuallyRouted="false" />
+        <AssociationConnector Association="ip220Model.FK_BookIssuance_Client1" ManuallyRouted="false" />
+        <AssociationConnector Association="ip220Model.FK_BookIssuance_Librarian1" ManuallyRouted="false" />
+        <AssociationConnector Association="ip220Model.FK_BookIssuance_Publication1" ManuallyRouted="false" />
+        <AssociationConnector Association="ip220Model.FK_BookLost_Client1" ManuallyRouted="false" />
+        <AssociationConnector Association="ip220Model.FK_BookLost_Librarian1" ManuallyRouted="false" />
+        <AssociationConnector Association="ip220Model.FK_BookLost_Publication" ManuallyRouted="false" />
+        <AssociationConnector Association="ip220Model.FK_Limits_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="ip220Model.FK_Warnings_Client1" ManuallyRouted="false" />
+        <AssociationConnector Association="ip220Model.FK_Publication_Publisher" ManuallyRouted="false" />
+        <AssociationConnector Association="ip220Model.FK_Publication_YDK1" ManuallyRouted="false" />
+        <AssociationConnector Association="ip220Model.Author_Book" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

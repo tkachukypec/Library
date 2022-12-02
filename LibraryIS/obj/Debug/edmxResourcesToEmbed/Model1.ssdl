@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище ip220Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Author">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Author_Book">
+    <Key>
+      <PropertyRef Name="AuthorId" />
+      <PropertyRef Name="BookId" />
+    </Key>
+    <Property Name="AuthorId" Type="int" Nullable="false" />
+    <Property Name="BookId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BBK">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Pages" Type="int" Nullable="false" />
+    <Property Name="Annotation" Type="nvarchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BookIssuance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LibrarianId" Type="int" Nullable="false" />
+    <Property Name="ClientId" Type="int" Nullable="false" />
+    <Property Name="PublicationId" Type="int" Nullable="false" />
+    <Property Name="DateIssued" Type="datetime" Nullable="false" />
+    <Property Name="DateExpired" Type="datetime" Nullable="false" />
+    <Property Name="Passed" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BookLost">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LibrarianId" Type="int" Nullable="false" />
+    <Property Name="ClientId" Type="int" Nullable="false" />
+    <Property Name="PublicationId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Patronymic" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Phone" Type="nchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Librarian">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Patronymic" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Salary" Type="int" Nullable="false" />
+    <Property Name="ImagePath" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Limits">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientId" Type="int" Nullable="false" />
+    <Property Name="DateIssued" Type="datetime" Nullable="false" />
+    <Property Name="DateExpired" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Publication">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PublisherId" Type="int" Nullable="false" />
+    <Property Name="BookId" Type="int" Nullable="false" />
+    <Property Name="BBK_Id" Type="int" Nullable="false" />
+    <Property Name="YDK_Id" Type="int" Nullable="false" />
+    <Property Name="Year" Type="int" Nullable="false" />
+    <Property Name="Pages" Type="int" Nullable="false" />
+    <Property Name="ISBN" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="Article" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="Record" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Count" Type="int" Nullable="false" />
+    <Property Name="Left" Type="int" Nullable="false" />
+    <Property Name="ImagePath" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Publisher">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Warnings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientId" Type="int" Nullable="false" />
+    <Property Name="DateIssued" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="YDK">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Author_Book_Author1">
+    <End Role="Author" Type="Self.Author" Multiplicity="1" />
+    <End Role="Author_Book" Type="Self.Author_Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Author">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Author_Book">
+        <PropertyRef Name="AuthorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Author_Book_Book1">
+    <End Role="Book" Type="Self.Book" Multiplicity="1" />
+    <End Role="Author_Book" Type="Self.Author_Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Author_Book">
+        <PropertyRef Name="BookId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BookIssuance_Client1">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="BookIssuance" Type="Self.BookIssuance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BookIssuance">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BookIssuance_Librarian1">
+    <End Role="Librarian" Type="Self.Librarian" Multiplicity="1" />
+    <End Role="BookIssuance" Type="Self.BookIssuance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Librarian">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BookIssuance">
+        <PropertyRef Name="LibrarianId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BookIssuance_Publication1">
+    <End Role="Publication" Type="Self.Publication" Multiplicity="1" />
+    <End Role="BookIssuance" Type="Self.BookIssuance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Publication">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BookIssuance">
+        <PropertyRef Name="PublicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BookLost_Client1">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="BookLost" Type="Self.BookLost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BookLost">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BookLost_Librarian1">
+    <End Role="Librarian" Type="Self.Librarian" Multiplicity="1" />
+    <End Role="BookLost" Type="Self.BookLost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Librarian">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BookLost">
+        <PropertyRef Name="LibrarianId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BookLost_Publication">
+    <End Role="Publication" Type="Self.Publication" Multiplicity="1" />
+    <End Role="BookLost" Type="Self.BookLost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Publication">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BookLost">
+        <PropertyRef Name="PublicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Limits_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="Limits" Type="Self.Limits" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Limits">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Publication_BBK1">
+    <End Role="BBK" Type="Self.BBK" Multiplicity="1" />
+    <End Role="Publication" Type="Self.Publication" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BBK">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Publication">
+        <PropertyRef Name="BBK_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Publication_Book">
+    <End Role="Book" Type="Self.Book" Multiplicity="1" />
+    <End Role="Publication" Type="Self.Publication" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Publication">
+        <PropertyRef Name="BookId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Publication_Publisher">
+    <End Role="Publisher" Type="Self.Publisher" Multiplicity="1" />
+    <End Role="Publication" Type="Self.Publication" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Publisher">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Publication">
+        <PropertyRef Name="PublisherId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Publication_YDK1">
+    <End Role="YDK" Type="Self.YDK" Multiplicity="1" />
+    <End Role="Publication" Type="Self.Publication" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YDK">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Publication">
+        <PropertyRef Name="YDK_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Warnings_Client1">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="Warnings" Type="Self.Warnings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Warnings">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище ip220ModelContainer">
+    <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Author_Book" EntityType="Self.Author_Book" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BBK" EntityType="Self.BBK" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BookIssuance" EntityType="Self.BookIssuance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BookLost" EntityType="Self.BookLost" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Librarian" EntityType="Self.Librarian" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Limits" EntityType="Self.Limits" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Publication" EntityType="Self.Publication" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Publisher" EntityType="Self.Publisher" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Warnings" EntityType="Self.Warnings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YDK" EntityType="Self.YDK" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Author_Book_Author1" Association="Self.FK_Author_Book_Author1">
+      <End Role="Author" EntitySet="Author" />
+      <End Role="Author_Book" EntitySet="Author_Book" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Author_Book_Book1" Association="Self.FK_Author_Book_Book1">
+      <End Role="Book" EntitySet="Book" />
+      <End Role="Author_Book" EntitySet="Author_Book" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BookIssuance_Client1" Association="Self.FK_BookIssuance_Client1">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="BookIssuance" EntitySet="BookIssuance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BookIssuance_Librarian1" Association="Self.FK_BookIssuance_Librarian1">
+      <End Role="Librarian" EntitySet="Librarian" />
+      <End Role="BookIssuance" EntitySet="BookIssuance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BookIssuance_Publication1" Association="Self.FK_BookIssuance_Publication1">
+      <End Role="Publication" EntitySet="Publication" />
+      <End Role="BookIssuance" EntitySet="BookIssuance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BookLost_Client1" Association="Self.FK_BookLost_Client1">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="BookLost" EntitySet="BookLost" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BookLost_Librarian1" Association="Self.FK_BookLost_Librarian1">
+      <End Role="Librarian" EntitySet="Librarian" />
+      <End Role="BookLost" EntitySet="BookLost" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BookLost_Publication" Association="Self.FK_BookLost_Publication">
+      <End Role="Publication" EntitySet="Publication" />
+      <End Role="BookLost" EntitySet="BookLost" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Limits_Client" Association="Self.FK_Limits_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Limits" EntitySet="Limits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Publication_BBK1" Association="Self.FK_Publication_BBK1">
+      <End Role="BBK" EntitySet="BBK" />
+      <End Role="Publication" EntitySet="Publication" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Publication_Book" Association="Self.FK_Publication_Book">
+      <End Role="Book" EntitySet="Book" />
+      <End Role="Publication" EntitySet="Publication" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Publication_Publisher" Association="Self.FK_Publication_Publisher">
+      <End Role="Publisher" EntitySet="Publisher" />
+      <End Role="Publication" EntitySet="Publication" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Publication_YDK1" Association="Self.FK_Publication_YDK1">
+      <End Role="YDK" EntitySet="YDK" />
+      <End Role="Publication" EntitySet="Publication" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Warnings_Client1" Association="Self.FK_Warnings_Client1">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Warnings" EntitySet="Warnings" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
