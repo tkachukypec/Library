@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using LibraryIS.Services;
+using LibraryIS.ViewModels;
 
 namespace LibraryIS
 {
@@ -17,7 +18,10 @@ namespace LibraryIS
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            ServiceContainer.Instance.AddService<IDialogService>(new DialogService());
+            //ServiceContainer.Instance.AddService<IDialogService>(new DialogService());
+
+            /*ServiceContainer.Instance.AddService<INavigationService<AddEditBookViewModel>>
+                (new WindowNavigationService<AddEditBookViewModel, AddPublicationWindow>());*/
         }
     }
 }

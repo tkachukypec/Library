@@ -38,11 +38,22 @@
                 <ComboBoxItem>по дате (по возрастанию)</ComboBoxItem>
                 <ComboBoxItem>по дате (по убыванию)</ComboBoxItem>
             </ComboBox>
+            <Button Margin="0,5" Command="{Binding AddCommand}">
+                <Button.Content>
+                    Добавить запись
+                </Button.Content>
+            </Button>
+            <Button Margin="0,5" Command="{Binding EditCommand}" CommandParameter="{Binding Path=SelectedItem,ElementName=dataGridCatalogBooks}">
+                <Button.Content>
+                    Редактировать запись
+                </Button.Content>
+            </Button>
             <Button Margin="0,5" Command="{Binding RemoveCommand}" CommandParameter="{Binding Path=SelectedItem,ElementName=dataGridCatalogBooks}">
                 <Button.Content>
                     Удалить запись
                 </Button.Content>
             </Button>
+            
         </StackPanel>
         <TextBox Style="{StaticResource searchTextBoxStyle}" BorderBrush="#10101A" VerticalContentAlignment="Center"
                  FontSize="16" TextChanged="SearchTextBox_TextChanged"

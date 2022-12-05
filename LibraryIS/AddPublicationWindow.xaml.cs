@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LibraryIS.ViewModels;
+using System.IO;
 
 namespace LibraryIS
 {
@@ -22,6 +24,39 @@ namespace LibraryIS
         public AddPublicationWindow()
         {
             InitializeComponent();
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox tB = sender as TextBox;
+            foreach(Author a in lB.Items)
+            {
+                if ($"{a.Name}".Contains(tB.Text))
+                    ((ListBoxItem)lB.ItemContainerGenerator.ContainerFromItem(a)).Visibility = Visibility.Visible;
+                else
+                    ((ListBoxItem)lB.ItemContainerGenerator.ContainerFromItem(a)).Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e) =>
+            (DataContext as AddEditBookViewModel).Publication.Book.Author = (sender as ListBox).SelectedItems.OfType<Author>().ToList();
+
+        private void Window_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            foreach(Author a in (DataContext as AddEditBookViewModel).Publication.Book.Author)
+            {
+                lB.SelectedItems.Add(a);
+            }
+            (DataContext as AddEditBookViewModel).CommandExecuted += AddEditBookWindow_CommandExecuted;
+        }
+
+        private void AddEditBookWindow_CommandExecuted(object obj, CommandExecutedEventArgs commandExecuted)
+        {
+            if (commandExecuted.CommandExecutedResult == CommandExecutedResult.Ok)
+                Close();
+            else
+                Services.ServiceContainer.Instance.GetService<Services.IDialogService>()
+                    .ShowDialog(commandExecuted.ErrorMessage, "Ошибка выполнения", Services.TypeDialog.ErrorType);
         }
     }
 }

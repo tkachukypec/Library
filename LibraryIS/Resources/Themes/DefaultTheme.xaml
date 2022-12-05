@@ -6,6 +6,17 @@
     <converters:ListAuthorToStringConverter x:Key="listAuthorToStringConverter"></converters:ListAuthorToStringConverter>
     <converters:BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter"></converters:BooleanToVisibilityConverter>
 
+    <Style x:Key="authorListItemStyle" TargetType="ListBoxItem">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBoxItem">
+                    <Border BorderThickness="0" Background="Transparent" Name="_border">
+                        <ContentPresenter></ContentPresenter>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <Style TargetType="Button" x:Key="resetFiltersButtonStyle">
         <Setter Property="Template">
         <Setter.Value>

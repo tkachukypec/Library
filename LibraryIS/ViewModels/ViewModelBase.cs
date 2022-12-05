@@ -33,7 +33,7 @@ namespace LibraryIS.ViewModels
         public delegate void CommandExecutedEventHandler(object obj, CommandExecutedEventArgs commandExecuted);
         public event CommandExecutedEventHandler CommandExecuted;
         public event PropertyChangedEventHandler PropertyChanged;
-        private void OnCommandExecuted(CommandExecutedResult commandExecutedResult, string errorMessage = null) =>
+        protected void OnCommandExecuted(CommandExecutedResult commandExecutedResult, string errorMessage = null) =>
             CommandExecuted?.Invoke(this, new CommandExecutedEventArgs(commandExecutedResult, errorMessage));
         protected void PropertyChange([CallerMemberName] string propertyName = "")
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

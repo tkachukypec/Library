@@ -10,11 +10,37 @@ using LibraryIS.Filters;
 using System.Windows;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using LibraryIS;
 
 namespace LibraryIS.ViewModels
 {
     class CatalogBooksViewModel : ViewModelBase
     {
+        INavigationService<AddEditBookViewModel> _navigationService = ServiceContainer.Instance.GetService<INavigationService<AddEditBookViewModel>>();
+        private Command _editCommand;
+        public Command EditCommand
+        {
+            get
+            {
+                return _editCommand ?? (_editCommand = new Command(obj =>
+                {
+                    _navigationService.ShowView(new AddEditBookViewModel(obj as Publication));
+                    _navigationService.ClosedView += (o, e) => UpdateBookList();
+                }, obj => obj != null));
+            }
+        }
+        private Command _addCommand;
+        public Command AddCommand
+        {
+            get
+            {
+                return _addCommand ?? (_addCommand = new Command(obj =>
+                {
+                    _navigationService.ShowView(new AddEditBookViewModel());
+                    _navigationService.ClosedView += (o, e) => UpdateBookList();
+                }));
+            }
+        }
         public ObservableCollection<BBKFilter> BBKFilters { get; private set; }
         public string SearchString { get; set; } = "";
         IDialogService _dialogService;

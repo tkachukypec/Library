@@ -5,21 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LibraryIS"
         mc:Ignorable="d"
-        Title="{Binding Title,StringFormat={}{0} книгу}" Height="450" Width="800">
+        Title="{Binding Title,StringFormat={}{0} книгу}" Height="450" Width="800" DataContextChanged="Window_DataContextChanged">
     <Grid>
         <TextBlock Text="{Binding Title,StringFormat={}{0} книгу}" FontWeight="Bold" FontSize="20" Margin="40,0,-0.6,-0.8"></TextBlock>
-        <local:PhotoPicker SaveDirectory="images/books" ImagePath="{Binding Publication.Image,Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40" Width="150" Height="150"></local:PhotoPicker>
+        <local:PhotoPicker SaveDirectory="images/books" ImagePath="{Binding Publication.ImagePath,Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40" Width="150" Height="150"></local:PhotoPicker>
         <StackPanel HorizontalAlignment="Right" Margin="0,40,20,0" Orientation="Vertical">
             <TextBlock Text="Название книги"></TextBlock>
             <TextBox Width="220" Text="{Binding Publication.Book.Title}"></TextBox>
 
-
-            <TextBlock Text="Описание"></TextBlock>
-            <TextBox Width="220" Text="{Binding Publication.Book.Description}"></TextBox>
-
             <TextBlock Text="Год издания"></TextBlock>
-            <TextBox HorizontalAlignment="Left" Width="70" Text="{Binding Book.Year}"
-
+            <TextBox HorizontalAlignment="Left" Width="70" Text="{Binding Publication.Year}"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="40,200,0,0">
+            <TextBlock Style="{StaticResource addEditTextBlockStyle}" Text="ББК"></TextBlock>
+            <ComboBox ItemsSource="{Binding BBK}" DisplayMemberPath="Name" SelectedItem="Binding Publication.BBK" Width="220"></ComboBox>
+            <TextBlock Style="{StaticResource addEditTextBlockStyle}" Text="Издатель"></TextBlock>
+            <ComboBox ItemsSource="{Binding Publisher}" DisplayMemberPath="Name" SelectedItem="{Binding Publication.Publisher}" Width="220"></ComboBox>
+            <TextBlock Style="{StaticResource addEditTextBlockStyle}" Text="Автор(ы)"></TextBlock>
+            <TextBox TextChanged="TextBox_TextChanged" Height="30" Style="{StaticResource searchTextBoxStyle}" Width="220"></TextBox>
+            <ListBox x:Name="lB" IsTextSearchEnabled="True" ItemContainerStyle="{StaticResource authorListItemStyle}" SelectionMode="Multiple"
+                     ItemsSource="{Binding Authors}" Margin="0,10,0,0" Height="150" Initialized="lB_Initialized" SelectionChanged="ListBox_SelectionChanged">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <CheckBox IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem},Path=IsSelected}">
+                            <CheckBox.Content>
+                                <TextBlock>
+                                    <TextBlock.Text>
+                                        <MultiBinding StringFormat=" {0} {1}">
+                                            <Binding Path="Surname"></Binding>
+                                            <Binding Path="Name"></Binding>
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                            </CheckBox.Content>
+                        </CheckBox>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Button Command="{Binding SaveCommand}" Margin="0,20,0,0">Сохранить</Button>
         </StackPanel>
     </Grid>
 </Window>

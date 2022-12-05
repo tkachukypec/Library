@@ -54,6 +54,7 @@ namespace LibraryIS
                     {
                         MessageBox.Show(ex.Message);
                         SetValue(ImagePathProperty, oldPathImage);
+                        return;
                     }
                 }
             }

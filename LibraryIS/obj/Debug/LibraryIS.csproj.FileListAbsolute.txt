@@ -61,3 +61,17 @@ C:\Users\Stud428\Desktop\LibraryIS\LibraryIS\obj\Debug\LibraryIS.csproj.Generate
 C:\Users\Stud428\Desktop\LibraryIS\LibraryIS\obj\Debug\LibraryIS.csproj.CoreCompileInputs.cache
 C:\Users\Stud428\Desktop\LibraryIS\LibraryIS\obj\Debug\LibraryIS.csproj.CopyComplete
 C:\Users\Stud428\Desktop\LibraryIS\LibraryIS\obj\Debug\PhotoPicker.g.cs
+C:\Users\Stud428\Desktop\Library\LibraryIS\obj\Debug\LibraryIS.csprojAssemblyReference.cache
+C:\Users\Stud428\Desktop\Library\LibraryIS\obj\Debug\MainWindow.g.cs
+C:\Users\Stud428\Desktop\Library\LibraryIS\obj\Debug\Pages\MainWindowsPages\Page1.g.cs
+C:\Users\Stud428\Desktop\Library\LibraryIS\obj\Debug\PhotoPicker.g.cs
+C:\Users\Stud428\Desktop\Library\LibraryIS\obj\Debug\View\Dialog.g.cs
+C:\Users\Stud428\Desktop\Library\LibraryIS\obj\Debug\Window1.g.cs
+C:\Users\Stud428\Desktop\Library\LibraryIS\obj\Debug\App.g.cs
+C:\Users\Stud428\Desktop\Library\LibraryIS\obj\Debug\LibraryIS_Content.g.cs
+C:\Users\Stud428\Desktop\Library\LibraryIS\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Stud428\Desktop\Library\LibraryIS\obj\Debug\LibraryIS_MarkupCompile.cache
+C:\Users\Stud428\Desktop\Library\LibraryIS\obj\Debug\LibraryIS_MarkupCompile.lref
+C:\Users\Stud428\Desktop\Library\LibraryIS\obj\Debug\LibraryIS.exe
+C:\Users\Stud428\Desktop\Library\LibraryIS\obj\Debug\LibraryIS.pdb
+C:\Users\Stud428\Desktop\Library\LibraryIS\obj\Debug\AddPublicationWindow.g.cs
