@@ -17,14 +17,14 @@
             <TextBox HorizontalAlignment="Left" Width="70" Text="{Binding Publication.Year}"></TextBox>
         </StackPanel>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="40,200,0,0">
-            <TextBlock Style="{StaticResource addEditTextBlockStyle}" Text="ББК"></TextBlock>
+            <TextBlock Text="ББК"></TextBlock>
             <ComboBox ItemsSource="{Binding BBK}" DisplayMemberPath="Name" SelectedItem="Binding Publication.BBK" Width="220"></ComboBox>
-            <TextBlock Style="{StaticResource addEditTextBlockStyle}" Text="Издатель"></TextBlock>
+            <TextBlock Text="Издатель"></TextBlock>
             <ComboBox ItemsSource="{Binding Publisher}" DisplayMemberPath="Name" SelectedItem="{Binding Publication.Publisher}" Width="220"></ComboBox>
-            <TextBlock Style="{StaticResource addEditTextBlockStyle}" Text="Автор(ы)"></TextBlock>
+            <TextBlock Text="Автор(ы)"></TextBlock>
             <TextBox TextChanged="TextBox_TextChanged" Height="30" Style="{StaticResource searchTextBoxStyle}" Width="220"></TextBox>
             <ListBox x:Name="lB" IsTextSearchEnabled="True" ItemContainerStyle="{StaticResource authorListItemStyle}" SelectionMode="Multiple"
-                     ItemsSource="{Binding Authors}" Margin="0,10,0,0" Height="150" Initialized="lB_Initialized" SelectionChanged="ListBox_SelectionChanged">
+                     ItemsSource="{Binding Authors}" Margin="0,10,0,0" Height="150" SelectionChanged="ListBox_SelectionChanged">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <CheckBox IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem},Path=IsSelected}">

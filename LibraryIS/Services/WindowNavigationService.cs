@@ -17,7 +17,8 @@ namespace LibraryIS.Services
                 if (Window != null && Window.DataContext is T)
                     return Window.DataContext as T;
 
-                return null;
+                else
+                    return null;
             }
             set
             {

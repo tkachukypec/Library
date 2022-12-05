@@ -234,6 +234,9 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Images\dialogResources\error.png" />
+    <Resource Include="Resources\Images\dialogResources\confirmation.png" />
+    <Resource Include="Resources\Images\dialogResources\info.png" />
     <Resource Include="Resources\Images\noImage.png" />
     <Resource Include="Resources\Images\avatars\admin.png" />
     <Resource Include="Resources\Images\avatars\director.png" />
@@ -245,8 +248,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\Images\dialogResources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -51,6 +51,8 @@ namespace LibraryIS.ViewModels
             _dialogService = ServiceContainer.Instance.GetService<IDialogService>();
             Publications = new ObservableCollection<Publication>();
             BBKFilters = new ObservableCollection<BBKFilter>(DataBase.GetEntities().BBK.Select(p => new BBKFilter() { BBK = p }));
+
+            //MessageBox.Show($"{0} | {1} | {2}", Title, (int)_dialogService, Publications);
         }
         private bool _resetFilterActive = false;
         public bool ResetFilterActive

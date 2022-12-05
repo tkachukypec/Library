@@ -11,8 +11,7 @@
         Background="Transparent"
         WindowStartupLocation="CenterScreen"
         Name="_window"
-        SizeToContent="Height"
-        Title="Dialog" Height="450" Width="400">
+        Title="Dialog" Height="550" Width="500">
     <Window.Resources>
         <SolidColorBrush x:Key="infoColor">#7DBAAB</SolidColorBrush>
         <SolidColorBrush x:Key="errorColor">#F44336</SolidColorBrush>
@@ -65,7 +64,7 @@
                             <DataTrigger Binding="{Binding ElementName=_window,Path=TypeDialog}" Value="2">
                                 <Setter Property="Background" Value="{StaticResource confirmationColor}"></Setter>
                             </DataTrigger>
-                            
+
                         </Style.Triggers>
                     </Style>
                 </Border.Style>
