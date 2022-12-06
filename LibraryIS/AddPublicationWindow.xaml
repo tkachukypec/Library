@@ -5,18 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LibraryIS"
         mc:Ignorable="d"
-        Title="{Binding Title,StringFormat={}{0} книгу}" Height="450" Width="800" DataContextChanged="Window_DataContextChanged">
+        Title="{Binding Title,StringFormat={}{0} публикацию}" Height="450" Width="800" DataContextChanged="Window_DataContextChanged">
     <Grid>
-        <TextBlock Text="{Binding Title,StringFormat={}{0} книгу}" FontWeight="Bold" FontSize="20" Margin="40,0,-0.6,-0.8"></TextBlock>
+        <TextBlock Text="{Binding Title,StringFormat={}{0} публикацию}" FontWeight="Bold" FontSize="20" Margin="40,0,-0.6,-0.8"></TextBlock>
         <local:PhotoPicker SaveDirectory="images/books" ImagePath="{Binding Publication.ImagePath,Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40" Width="150" Height="150"></local:PhotoPicker>
         <StackPanel HorizontalAlignment="Right" Margin="0,40,20,0" Orientation="Vertical">
-            <TextBlock Text="Название книги"></TextBlock>
-            <TextBox Width="220" Text="{Binding Publication.Book.Title}"></TextBox>
 
             <TextBlock Text="Год издания"></TextBlock>
             <TextBox HorizontalAlignment="Left" Width="70" Text="{Binding Publication.Year}"></TextBox>
         </StackPanel>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="40,200,0,0">
+            <TextBlock Text="Книга"></TextBlock>
+            <ComboBox ItemsSource="{Binding Books}" DisplayMemberPath="Title" SelectedItem="{Binding Publication.Book}" Width="220"></ComboBox>
             <TextBlock Text="ББК"></TextBlock>
             <ComboBox ItemsSource="{Binding BBKs}" DisplayMemberPath="Name" SelectedItem="{Binding Publication.BBK}" Width="220"></ComboBox>
             <TextBlock Text="Издатель"></TextBlock>

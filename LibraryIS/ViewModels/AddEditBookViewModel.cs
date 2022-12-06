@@ -21,14 +21,30 @@ namespace LibraryIS.ViewModels
                 }
             }
         }
+        private Book _book;
+        public Book Book
+        {
+            get => _book;
+            set
+            {
+                if (_book != value)
+                {
+                    _book = value;
+                    PropertyChange();
+                }
+            }
+        }
+
         private bool _isAddBook;
         public List<BBK> BBKs { get; private set; }
         public List<Author> Authors { get; private set; }
         public List<Publisher> Publishers { get; private set; }
+        public List<Book> Books { get; private set; }
         public AddEditBookViewModel(Publication pub = null)
         {
             if(pub == null)
             {
+
                 Publication = new Publication();
                 _isAddBook = true;
                 Title = "Добавить";
@@ -43,6 +59,7 @@ namespace LibraryIS.ViewModels
             BBKs = DataBase.GetEntities().BBK.ToList();
             Authors = DataBase.GetEntities().Author.ToList();
             Publishers = DataBase.GetEntities().Publisher.ToList();
+            Books = DataBase.GetEntities().Book.ToList();
         }
         private Command _saveCommand;
         public Command SaveCommand

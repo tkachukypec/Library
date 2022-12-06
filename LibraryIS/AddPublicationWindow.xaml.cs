@@ -38,16 +38,34 @@ namespace LibraryIS
             }
         }
 
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e) =>
-            (DataContext as AddEditBookViewModel).Publication.Book.Author = (sender as ListBox).SelectedItems.OfType<Author>().ToList();
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (DataContext is AddEditBookViewModel)
+            {
+                Book book = (DataContext as AddEditBookViewModel).Publication.Book;
+                if (book != null)
+                {
+                    (DataContext as AddEditBookViewModel).Publication.Book.Author = (sender as ListBox).SelectedItems.OfType<Author>().ToList();
+                }
+            }
+            
+        }
 
         private void Window_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            foreach(Author a in (DataContext as AddEditBookViewModel).Publication.Book.Author)
+            if (DataContext is AddEditBookViewModel)
             {
-                 lB.SelectedItems.Add(a);
+                Book book = (DataContext as AddEditBookViewModel).Publication.Book;
+                if(book != null)
+                {
+                    foreach (Author a in (DataContext as AddEditBookViewModel).Publication.Book.Author)
+                    {
+                        lB.SelectedItems.Add(a);
+                    }
+
+                }
+                (DataContext as AddEditBookViewModel).CommandExecuted += AddEditBookWindow_CommandExecuted;
             }
-            (DataContext as AddEditBookViewModel).CommandExecuted += AddEditBookWindow_CommandExecuted;
         }
 
 
