@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using LibraryIS.ViewModels;
 
 namespace LibraryIS.Services
 {
-    class WindowNavigationService<T, P>: INavigationService<T> where T:ViewModelBase where P:Window1,new()
+    class WindowNavigationService<T, P>: INavigationService<T> where T:ViewModelBase where P:Window,new()
     {
         public P Window { get; private set; }
         public T ViewModel

@@ -31,6 +31,7 @@ namespace LibraryIS.ViewModels
             Account = AuthorizationViewModel.Account;
             ViewModelsCollection = new ObservableCollection<ViewModelBase>();
             ViewModelsCollection.Add(new CatalogBooksViewModel());
+            ViewModelsCollection.Add(new ReportViewModel());
             SelectedViewModel = ViewModelsCollection[0];
         }
     }

@@ -1,0 +1,70 @@
+﻿<Page x:Class="LibraryIS.Pages.MainWindowsPages.Page2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LibraryIS.Pages.MainWindowsPages"
+      xmlns:charts="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+      xmlns:converters="clr-namespace:LibraryIS.converters"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Name="window"
+      Title="{Binding Title}">
+    <Page.Resources>
+        <converters:PieSeriesConverter x:Key="conv"></converters:PieSeriesConverter>
+        <converters:ListValuesToChartValues x:Key="conv2"></converters:ListValuesToChartValues>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80*"></RowDefinition>
+            <RowDefinition Height="223*"></RowDefinition>
+            <RowDefinition Height="147*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Roboto" FontSize="25" Margin="30,30" Text="{Binding Title}"></TextBlock>
+        <charts:PieChart LegendLocation="Bottom" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1">
+            <charts:PieChart.Series>
+                <MultiBinding Converter="{StaticResource conv}">
+                    <Binding Path="BookLabels"></Binding>
+                    <Binding Path="CountExtraditionValues"></Binding>
+                </MultiBinding>
+            </charts:PieChart.Series>
+        </charts:PieChart>
+
+        <charts:CartesianChart Grid.Row="2" Grid.Column="0">
+            <charts:CartesianChart.Series>
+                <charts:ColumnSeries Values="{Binding RelativeFrequencies,Converter={StaticResource conv2}}"></charts:ColumnSeries>
+            </charts:CartesianChart.Series>
+            <charts:CartesianChart.AxisX>
+                <charts:Axis Labels="{Binding BookLabels}"></charts:Axis>
+            </charts:CartesianChart.AxisX>
+        </charts:CartesianChart>
+
+        <charts:CartesianChart Grid.Row="2" Grid.Column="1">
+            <charts:CartesianChart.Series>
+                <charts:LineSeries Values="{Binding AccumulatedRelativeFrequencies,Converter={StaticResource conv2}}"></charts:LineSeries>
+            </charts:CartesianChart.Series>
+            <charts:CartesianChart.AxisX>
+                <charts:Axis Labels="{Binding BookLabels}"></charts:Axis>
+            </charts:CartesianChart.AxisX>
+        </charts:CartesianChart>
+
+        <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="2" Grid.RowSpan="2">
+            <TextBlock TextAlignment="Center" FontWeight="Medium" Margin="0,10" Text="Наиболее популярная книга"></TextBlock>
+            <Image Source="{Binding PopularPub.ImagePath,Converter={StaticResource relativeToFullPathConverter}}"
+                   Height="150" Width="150" Margin="0, 20"></Image>
+            <TextBlock Foreground="#7d7d7d" TextWrapping="Wrap" Text="{Binding PopularPub.Book.Author,
+                Converter={StaticResource listAuthorToStringConverter}}" TextAlignment="Center"></TextBlock>
+            <TextBlock FontWeight="Medium" FontSize="13" Text="{Binding PopularBook.Book.Title}"
+                       TextWrapping="Wrap" TextAlignment="Center"></TextBlock>
+            <TextBlock FontSize="13" Text="{Binding PopularPub.BookIssuance.Count,StringFormat=(количество аренд:{0})}"
+                       TextWrapping="Wrap" TextAlignment="Center"></TextBlock>
+        </StackPanel>
+    </Grid>
+</Page>

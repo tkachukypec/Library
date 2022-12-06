@@ -96,3 +96,12 @@ C:\Users\Stud428\Desktop\Library\LibraryIS\obj\Debug\LibraryIS.Properties.Resour
 C:\Users\Stud428\Desktop\Library\LibraryIS\obj\Debug\LibraryIS.csproj.GenerateResource.cache
 C:\Users\Stud428\Desktop\Library\LibraryIS\obj\Debug\LibraryIS.csproj.CoreCompileInputs.cache
 C:\Users\Stud428\Desktop\Library\LibraryIS\obj\Debug\LibraryIS.csproj.CopyComplete
+C:\Users\Stud428\Desktop\library\LibraryIS\bin\Debug\LiveCharts.dll
+C:\Users\Stud428\Desktop\library\LibraryIS\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\Stud428\Desktop\library\LibraryIS\bin\Debug\LiveCharts.pdb
+C:\Users\Stud428\Desktop\library\LibraryIS\bin\Debug\LiveCharts.xml
+C:\Users\Stud428\Desktop\library\LibraryIS\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\Stud428\Desktop\library\LibraryIS\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\Stud428\Desktop\library\LibraryIS\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\Stud428\Desktop\library\LibraryIS\obj\Debug\Pages\MainWindowsPages\Page2.g.cs
+C:\Users\Stud428\Desktop\library\LibraryIS\obj\Debug\Pages\MainWindowsPages\Page2.baml

@@ -21,8 +21,8 @@ namespace LibraryIS
             base.OnStartup(e);
             ServiceContainer.Instance.AddService<IDialogService>(new DialogService());
 
-            /*ServiceContainer.Instance.AddService<INavigationService<AddEditBookViewModel>>
-                (new WindowNavigationService<AddEditBookViewModel, AddPublicationWindow>());*/
+            ServiceContainer.Instance.AddService<INavigationService<AddEditBookViewModel>>
+                (new WindowNavigationService<AddEditBookViewModel, AddPublicationWindow>());
         }
     }
 }
