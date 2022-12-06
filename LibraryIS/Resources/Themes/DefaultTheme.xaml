@@ -98,45 +98,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <Style TargetType="Button" x:Key="baseStyleButton">
-        <Setter Property="Width" Value="100"></Setter>
-        <Setter Property="Foreground" Value="White"></Setter>
-        <Setter Property="FontSize" Value="25"></Setter>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Border x:Name="_brd" Background="Transparent">
-                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <ContentPresenter></ContentPresenter>
-                        </TextBlock>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="_brd" Property="Background" Value="{Binding Background,RelativeSource={RelativeSource AncestorType=Button}}"></Setter>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
 
-    <Style TargetType="Button" BasedOn="{StaticResource baseStyleButton}" x:Key="infoStyleButton">
-        <Setter Property="Content" Value="Ok"></Setter>
-        <Setter Property="Background" Value="{StaticResource selectionInfo}"></Setter>
-    </Style>
-
-    <Style TargetType="Button" BasedOn="{StaticResource infoStyleButton}" x:Key="errorStyleButton">
-        <Setter Property="Background" Value="{StaticResource selectionError}"></Setter>
-    </Style>
-
-    <Style TargetType="Button" BasedOn="{StaticResource baseStyleButton}" x:Key="yesConfStyleButton">
-        <Setter Property="Content" Value="Да"></Setter>
-        <Setter Property="Background" Value="{StaticResource selectionConf}"></Setter>
-    </Style>
-
-    <Style TargetType="Button" BasedOn="{StaticResource yesConfStyleButton}" x:Key="noConfStyleButton">
-        <Setter Property="Content" Value="Нет"></Setter>
-    </Style>
     
     
     <Style x:Key="tabItemStyle" TargetType="TabItem">

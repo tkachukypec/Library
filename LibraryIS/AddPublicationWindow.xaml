@@ -18,9 +18,9 @@
         </StackPanel>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="40,200,0,0">
             <TextBlock Text="ББК"></TextBlock>
-            <ComboBox ItemsSource="{Binding BBK}" DisplayMemberPath="Name" SelectedItem="Binding Publication.BBK" Width="220"></ComboBox>
+            <ComboBox ItemsSource="{Binding BBKs}" DisplayMemberPath="Name" SelectedItem="{Binding Publication.BBK}" Width="220"></ComboBox>
             <TextBlock Text="Издатель"></TextBlock>
-            <ComboBox ItemsSource="{Binding Publisher}" DisplayMemberPath="Name" SelectedItem="{Binding Publication.Publisher}" Width="220"></ComboBox>
+            <ComboBox ItemsSource="{Binding Publishers}" DisplayMemberPath="Name" SelectedItem="{Binding Publication.Publisher}" Width="220"></ComboBox>
             <TextBlock Text="Автор(ы)"></TextBlock>
             <TextBox TextChanged="TextBox_TextChanged" Height="30" Style="{StaticResource searchTextBoxStyle}" Width="220"></TextBox>
             <ListBox x:Name="lB" IsTextSearchEnabled="True" ItemContainerStyle="{StaticResource authorListItemStyle}" SelectionMode="Multiple"
@@ -31,8 +31,7 @@
                             <CheckBox.Content>
                                 <TextBlock>
                                     <TextBlock.Text>
-                                        <MultiBinding StringFormat=" {0} {1}">
-                                            <Binding Path="Surname"></Binding>
+                                        <MultiBinding StringFormat=" {0}">
                                             <Binding Path="Name"></Binding>
                                         </MultiBinding>
                                     </TextBlock.Text>

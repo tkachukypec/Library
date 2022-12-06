@@ -45,10 +45,11 @@ namespace LibraryIS
         {
             foreach(Author a in (DataContext as AddEditBookViewModel).Publication.Book.Author)
             {
-                lB.SelectedItems.Add(a);
+                 lB.SelectedItems.Add(a);
             }
             (DataContext as AddEditBookViewModel).CommandExecuted += AddEditBookWindow_CommandExecuted;
         }
+
 
         private void AddEditBookWindow_CommandExecuted(object obj, CommandExecutedEventArgs commandExecuted)
         {

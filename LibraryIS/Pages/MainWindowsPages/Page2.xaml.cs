@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LibraryIS.ViewModels;
+using Microsoft.Win32;
 using Word = Microsoft.Office.Interop.Word;
 
 namespace LibraryIS.Pages.MainWindowsPages
@@ -92,6 +93,30 @@ namespace LibraryIS.Pages.MainWindowsPages
                         workSheet.Range[$"B{i + 2}"].Value2 = reportViewModel.CountExtraditionValues[i].ToString();
                     }
                     dataTable.Range.Resize(reportViewModel.BookLabels.Count + 1, 2);
+
+                    // Изображение
+                    paragraph.Range.InsertParagraphAfter();
+                    paragraph.Alignment = Word.WdParagraphAlignment.wdAlignParagraphLeft;
+                    paragraph.Range.Text = $"Самая популярная книга: {reportViewModel.PopularPub.Book.Title} " +
+                    $"(количество аренд {reportViewModel.PopularPub.BookIssuance.Count})";
+                    paragraph.Range.InsertParagraphAfter();
+                    paragraph.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
+                    if(reportViewModel.PopularPub.ImagePath != null)
+                    {
+                        Word.InlineShape inlineShapeImage = document.InlineShapes
+                        .AddPicture(System.IO.Path.GetFullPath(reportViewModel.PopularPub.ImagePath), missing, missing, paragraph.Range);
+                        inlineShapeImage.Width = 150;
+                        inlineShapeImage.Height = 150;
+                    }
+
+                    document.SaveAs2(savePath, missing, missing, missing, missing, missing, missing, missing,
+                        missing, missing, missing, missing, missing, missing, missing, missing, missing);
+                    document.Close(null, null, null);
+                    wordApplication.Quit(null, null, null);
+                    this.Dispatcher.Invoke(() =>
+                    {
+                        Services.ServiceContainer.Instance.GetService<Services.IDialogService>().ShowDialog("Отчет успешно сохранен", "Отчет");
+                    });
                 }
                 catch (Exception ex)
                 {
@@ -102,9 +127,23 @@ namespace LibraryIS.Pages.MainWindowsPages
                     });
                     wordApplication.Quit(null, null, null);
                 }
-
+                this.Dispatcher.Invoke(() =>
+                {
+                    plug.Visibility = Visibility.Hidden;
+                });
             }
             );
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Doc Files (*.doc)|*.doc";
+            if(saveFileDialog.ShowDialog() == true)
+            {
+                WordExport(saveFileDialog.FileName, DataContext as ReportViewModel);
+                plug.Visibility = Visibility.Visible;
+            }
         }
     }
 }

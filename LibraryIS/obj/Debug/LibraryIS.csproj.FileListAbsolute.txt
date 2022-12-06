@@ -105,3 +105,4 @@ C:\Users\Stud428\Desktop\library\LibraryIS\bin\Debug\LiveCharts.Wpf.xml
 C:\Users\Stud428\Desktop\library\LibraryIS\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
 C:\Users\Stud428\Desktop\library\LibraryIS\obj\Debug\Pages\MainWindowsPages\Page2.g.cs
 C:\Users\Stud428\Desktop\library\LibraryIS\obj\Debug\Pages\MainWindowsPages\Page2.baml
+C:\Users\Stud428\Desktop\library\LibraryIS\obj\Debug\LibraryIS.csproj.ResolveComReference.cache
