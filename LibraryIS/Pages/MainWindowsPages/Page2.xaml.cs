@@ -89,7 +89,7 @@ namespace LibraryIS.Pages.MainWindowsPages
                     workSheet.Range["B1"].Value2 = "Аренда книг";
                     for(int i = 0; i < reportViewModel.BookLabels.Count; i++)
                     {
-                        workSheet.Range[$"А{i + 2}"].Value2 = reportViewModel.BookLabels[i];
+                        workSheet.Range[$"A{i + 2}"].Value2 = reportViewModel.BookLabels[i];
                         workSheet.Range[$"B{i + 2}"].Value2 = reportViewModel.CountExtraditionValues[i].ToString();
                     }
                     dataTable.Range.Resize(reportViewModel.BookLabels.Count + 1, 2);

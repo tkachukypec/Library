@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace LibraryIS.ViewModels
 {
@@ -36,6 +37,7 @@ namespace LibraryIS.ViewModels
         }
 
         private bool _isAddBook;
+        public List<YDK> YDKs { get; private set; }
         public List<BBK> BBKs { get; private set; }
         public List<Author> Authors { get; private set; }
         public List<Publisher> Publishers { get; private set; }
@@ -46,6 +48,13 @@ namespace LibraryIS.ViewModels
             {
 
                 Publication = new Publication();
+                Publication.YDK = DataBase.GetEntities().YDK.FirstOrDefault();
+                Publication.Pages = 100;
+                Publication.ISBN = "WEWASEGGW";
+                Publication.Record = "qq";
+                Publication.Article = "123";
+                Publication.Count = 100;
+                Publication.Left = 50;
                 _isAddBook = true;
                 Title = "Добавить";
 
@@ -57,6 +66,7 @@ namespace LibraryIS.ViewModels
             }
 
             BBKs = DataBase.GetEntities().BBK.ToList();
+            YDKs = DataBase.GetEntities().YDK.ToList();
             Authors = DataBase.GetEntities().Author.ToList();
             Publishers = DataBase.GetEntities().Publisher.ToList();
             Books = DataBase.GetEntities().Book.ToList();

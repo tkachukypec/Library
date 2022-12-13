@@ -26,7 +26,7 @@ namespace LibraryIS
             InitializeComponent();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        /*private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox tB = sender as TextBox;
             foreach(Author a in lB.Items)
@@ -36,9 +36,9 @@ namespace LibraryIS
                 else
                     ((ListBoxItem)lB.ItemContainerGenerator.ContainerFromItem(a)).Visibility = Visibility.Hidden;
             }
-        }
+        }*/
 
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        /*private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (DataContext is AddEditBookViewModel)
             {
@@ -49,13 +49,13 @@ namespace LibraryIS
                 }
             }
             
-        }
+        }*/
 
         private void Window_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (DataContext is AddEditBookViewModel)
             {
-                Book book = (DataContext as AddEditBookViewModel).Publication.Book;
+                /*Book book = (DataContext as AddEditBookViewModel).Publication.Book;
                 if(book != null)
                 {
                     foreach (Author a in (DataContext as AddEditBookViewModel).Publication.Book.Author)
@@ -63,7 +63,7 @@ namespace LibraryIS
                         lB.SelectedItems.Add(a);
                     }
 
-                }
+                }*/
                 (DataContext as AddEditBookViewModel).CommandExecuted += AddEditBookWindow_CommandExecuted;
             }
         }

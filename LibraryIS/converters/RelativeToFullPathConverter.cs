@@ -19,7 +19,6 @@ namespace LibraryIS.converters
             
             try
             {
-                //return !File.Exists(path) ? "../resources/images/noImage.png" : Path.GetFullPath(path);
                 if(!File.Exists(path))
                 {
                     return "pack://application:,,,/resources/images/noImage.png";

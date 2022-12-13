@@ -14,7 +14,8 @@
         <Viewbox>
             <Canvas Width="100" Height="100">
                 <Canvas.Background>
-                    <ImageBrush ImageSource="{Binding ImagePath, Converter={StaticResource relativeToFullPathConverter}, RelativeSource={RelativeSource AncestorType=UserControl}}" Stretch="Uniform">
+                    <ImageBrush ImageSource="{Binding ImagePath, Converter={StaticResource relativeToFullPathConverter}
+                        ,RelativeSource={RelativeSource AncestorType=UserControl}}" Stretch="Uniform">
                         
                     </ImageBrush>
                 </Canvas.Background>

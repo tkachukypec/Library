@@ -136,10 +136,9 @@
     <Compile Include="Services\WindowNavigationService.cs" />
     <Compile Include="ViewModels\AddEditBookViewModel.cs" />
     <Compile Include="ViewModels\AuthorizationViewModel.cs" />
-    <Compile Include="ViewModels\CatalogBooksViewModel.cs" />
+    <Compile Include="ViewModels\CatalogPubsViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\ReportViewModel.cs" />
-    <Compile Include="ViewModels\StubTwoViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="View\Dialog.xaml.cs">
       <DependentUpon>Dialog.xaml</DependentUpon>

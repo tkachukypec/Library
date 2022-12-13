@@ -9,10 +9,6 @@ using LibraryIS.ViewModels;
 
 namespace LibraryIS.ViewModels
 {
-    interface IGettingPassword
-    {
-        string GetPassword();
-    }
     public enum CommandExecutedResult
     {
         Ok,
@@ -28,13 +24,17 @@ namespace LibraryIS.ViewModels
             ErrorMessage = errorMessage;
         }
     }
+    interface IGettingPassword
+    {
+        string GetPassword();
+    }
     class ViewModelBase : INotifyPropertyChanged
     {
         public delegate void CommandExecutedEventHandler(object obj, CommandExecutedEventArgs commandExecuted);
         public event CommandExecutedEventHandler CommandExecuted;
-        public event PropertyChangedEventHandler PropertyChanged;
         protected void OnCommandExecuted(CommandExecutedResult commandExecutedResult, string errorMessage = null) =>
             CommandExecuted?.Invoke(this, new CommandExecutedEventArgs(commandExecutedResult, errorMessage));
+        public event PropertyChangedEventHandler PropertyChanged;
         protected void PropertyChange([CallerMemberName] string propertyName = "")
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 

@@ -14,7 +14,7 @@ using LibraryIS;
 
 namespace LibraryIS.ViewModels
 {
-    class CatalogBooksViewModel : ViewModelBase
+    class CatalogPubsViewModel : ViewModelBase
     {
         INavigationService<AddEditBookViewModel> _navigationService = ServiceContainer.Instance.GetService<INavigationService<AddEditBookViewModel>>();
         private Command _editCommand;
@@ -43,16 +43,14 @@ namespace LibraryIS.ViewModels
         }
         public ObservableCollection<BBKFilter> BBKFilters { get; private set; }
         public string SearchString { get; set; } = "";
-        IDialogService _dialogService;
         public ObservableCollection<Publication> Publications { get; private set; }
-        public CatalogBooksViewModel()
+        IDialogService _dialogService;
+        public CatalogPubsViewModel()
         {
-            Title = "Каталог книг";
+            Title = "Издания";
             _dialogService = ServiceContainer.Instance.GetService<IDialogService>();
             Publications = new ObservableCollection<Publication>();
             BBKFilters = new ObservableCollection<BBKFilter>(DataBase.GetEntities().BBK.Select(p => new BBKFilter() { BBK = p }));
-
-            //MessageBox.Show($"{0} | {1} | {2}", Title, (int)_dialogService, Publications);
         }
         private bool _resetFilterActive = false;
         public bool ResetFilterActive

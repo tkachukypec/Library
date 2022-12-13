@@ -25,22 +25,22 @@ namespace LibraryIS.Pages.MainWindowsPages
             InitializeComponent();
         }
 
-        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e) => (DataContext as CatalogBooksViewModel).UpdateBookList();
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e) => (DataContext as CatalogPubsViewModel).UpdateBookList();
 
 
-        private void Filter_Checked(object sender, RoutedEventArgs e) => (DataContext as CatalogBooksViewModel).UpdateBookList();
+        private void Filter_Checked(object sender, RoutedEventArgs e) => (DataContext as CatalogPubsViewModel).UpdateBookList();
 
         private void Filter_UnChecked(object sender, RoutedEventArgs e)
         {
-            if((DataContext as CatalogBooksViewModel).ResetFilterActive == true)
+            if((DataContext as CatalogPubsViewModel).ResetFilterActive == true)
             {
-                (DataContext as CatalogBooksViewModel).UpdateBookList();
+                (DataContext as CatalogPubsViewModel).UpdateBookList();
             }
         }
 
-        private void ResetFilterButton_Click(object sender, RoutedEventArgs e) => (DataContext as CatalogBooksViewModel).ResetFilters();
+        private void ResetFilterButton_Click(object sender, RoutedEventArgs e) => (DataContext as CatalogPubsViewModel).ResetFilters();
 
-        private void SortComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) => (DataContext as CatalogBooksViewModel)?.UpdateBookList();
+        private void SortComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) => (DataContext as CatalogPubsViewModel)?.UpdateBookList();
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
