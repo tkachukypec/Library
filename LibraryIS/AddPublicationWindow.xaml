@@ -35,28 +35,6 @@
             <ComboBox ItemsSource="{Binding YDKs}" DisplayMemberPath="Name" SelectedItem="{Binding Publication.YDK}" Width="220"></ComboBox>
             <TextBlock Text="Издатель"></TextBlock>
             <ComboBox ItemsSource="{Binding Publishers}" DisplayMemberPath="Name" SelectedItem="{Binding Publication.Publisher}" Width="220"></ComboBox>
-            <!--
-            <TextBlock Text="Автор(ы)"></TextBlock>
-            <TextBox TextChanged="TextBox_TextChanged" Height="30" Style="{StaticResource searchTextBoxStyle}" Width="220"></TextBox>
-            <ListBox x:Name="lB" IsTextSearchEnabled="True" ItemContainerStyle="{StaticResource authorListItemStyle}" SelectionMode="Multiple"
-                     ItemsSource="{Binding Authors}" Margin="0,10,0,0" Height="150" SelectionChanged="ListBox_SelectionChanged">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <CheckBox IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem},Path=IsSelected}">
-                            <CheckBox.Content>
-                                <TextBlock>
-                                    <TextBlock.Text>
-                                        <MultiBinding StringFormat=" {0}">
-                                            <Binding Path="Name"></Binding>
-                                        </MultiBinding>
-                                    </TextBlock.Text>
-                                </TextBlock>
-                            </CheckBox.Content>
-                        </CheckBox>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-            -->
             <Button Command="{Binding SaveCommand}" Margin="0,20,0,0">Сохранить</Button>
         </StackPanel>
     </Grid>
